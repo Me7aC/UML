@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Set;
 
 public class Schule {
 		private String name;
@@ -6,28 +8,31 @@ public class Schule {
 		private Lehrer direktor;
 		private Schueler schulsprecher;
 		private Adresse standort;
-		private ArrayList<Mitarbeiter> personal;
+		private ArrayList<NichtLehrpersonal> personal;
 		private ArrayList<Abteilung> abteilungen;
 		
 		
-		public Schule (String name,long schulkennzahl, String schultyp){
+		public Schule (String name,long schulkennzahl, String schultyp, Adresse standort){
 			this.name = name;
 			this.schulkennzahl = schulkennzahl;
 			this.schultyp = schultyp;
 			this.direktor=direktor;
+			this.standort=standort;
+			personal = new ArrayList<>();
+			abteilungen = new ArrayList<>();
 		}
-		
-		
 		
 		
 		public boolean addPersonal(NichtLehrpersonal personal){
-				return true;
+				return this.personal.add(personal);
 		}
-		public void addAbteilung(){
-			return true;
+		public boolean addAbteilung(){
+			return abteilungen.add(new Abteilung(name, kuerzel,this));
 		}
+		
 		public boolean setDirektor(){
-			return Direktor;
+			direktor =  lehrer;
+			return true;
 		}
 		public long getSchulkennzahl(){
 			return schulkennzahl;
